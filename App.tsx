@@ -16,7 +16,6 @@ export default function App() {
           <Stack.Screen name="SignUp" component={SignUp} />
           <Stack.Screen name="new" component={newScreen} />
           <Stack.Screen name="login" component={Login} />
-
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>

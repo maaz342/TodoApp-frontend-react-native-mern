@@ -17,7 +17,7 @@ export default function Login() {
     try {
       const res = await axios.post("https://todo-app-react-native-backend.vercel.app/auth/login", model);
       await AsyncStorage.setItem('authToken', res.data.token);
-      Alert.alert("Success");
+      Alert.alert("SuccessFulyy Logged In");
       setLoader(false);
       nav.navigate('new');
     } catch (err: any) {
@@ -25,6 +25,9 @@ export default function Login() {
       setLoader(false);
     };
   };
+  const SignUpUser=()=>{
+    nav.navigate('SignUp')
+  }
 
   return (
     <View style={styles.container}>
@@ -49,6 +52,12 @@ export default function Login() {
           <View style={styles.btnContent}>
             <Icon name="sign-in" size={20} color="white" />
             <Text style={styles.btnText}>{loader ? 'Loading...' : 'Login'}</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn} onPress={SignUpUser}>
+          <View style={styles.btnContent}>
+            <Icon name="user-plus" size={20} color="white" />
+            <Text style={styles.btnText}>{loader ? 'Loading...' : 'SignUp'}</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -95,6 +104,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
+    marginTop:10,
   },
   btnContent: {
     flexDirection: 'row',
